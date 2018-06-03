@@ -13,11 +13,13 @@ import model.dao.ExampleDAO;
  */
 public final class ModelFacade implements IModel {
 
+	
     /**
      * Instantiates a new model facade.
      */
     public ModelFacade() {
         super();
+        
     }
 
     /*

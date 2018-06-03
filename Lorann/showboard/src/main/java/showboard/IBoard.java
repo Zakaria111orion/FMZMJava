@@ -41,7 +41,7 @@ public interface IBoard {
      *
      * @return the observer
      */
-    showboard.Observer getObserver();
+    Observer getObserver();
 
     /**
      * Sets the dimension.
