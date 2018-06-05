@@ -3,7 +3,7 @@ package model;
 /**
  * The Class LoadMap.
  *
- * @author Groupe Messbah EXIA Promo 2017
+ * @author cyril SNIADACH
  */
 class LoadMap extends Entity {
 

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /**
- * @author Groupe Messbah EXIA Promo 2017
+ * Created by Yog on 13/06/2016.
  */
 public abstract class Element implements IElement {
     protected BufferedImage image = null;

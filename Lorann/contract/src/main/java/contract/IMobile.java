@@ -9,20 +9,20 @@ public interface IMobile extends IElement {
     /**
      * Only for mobile element. Get the position on the map before apply motion
      * @return the Abscissa and ordinate of the mobile element
-     * @author Groupe Messbah EXIA Promo 2017
+     * @author Dorian
      */
     Point getPos();
 
     /**
      * @param order
      * Use the order to move the element on the array map removes or decreases the abscissa OR the ordinate frome its actual position
-     * @author Groupe Messbah EXIA Promo 2017
+     * @author Dorian
      */
     void move(MobileOrder order);
 
     /**
      * @return the direction of the element
-     * @author Groupe Messbah EXIA Promo 2017
+     * @author Dorian
      */
     MobileOrder getDirection();
 }

@@ -5,7 +5,7 @@ package contract;
  */
 public interface IHero extends IMobile {
     /**
-     * @author Groupe Messbah EXIA Promo 2017
+     * @author Dorian
      * @param order from the user
      * @param tileMap check elements permeability and size map
      * @param view

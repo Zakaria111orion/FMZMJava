@@ -3,7 +3,7 @@ package contract;
 /**
  * The Enum ControllerOrder.
  * List all Map and hero movements
- * @author Groupe Messbah EXIA Promo 2017
+ * @author Romain Muller
  */
 public enum ControllerOrder {
 	MOVEUP,

@@ -3,7 +3,7 @@ package model;
 /**
  * The Class EntityScore.
  *
- * @author Groupe Messbah EXIA Promo 2017
+ * @author Quentin Strinati
  */
 abstract public class EntityScore {
 }

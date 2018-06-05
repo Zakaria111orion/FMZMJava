@@ -5,13 +5,13 @@ import java.awt.Point;
 /**
  * The Interface IController.
  *
- * @author Groupe EXIA Promo 2017
+ * @author Jean-Aymeric Diet
  */
 public interface IController {
 
 	/**
 	 * Start the main gameloop.
-     * @author Groupe Messbah EXIA Promo 2017
+     * @author Dorian
 	 */
 	void start();
 
@@ -19,21 +19,21 @@ public interface IController {
 	 * Order perform.
 	 * @param controllerOrder
 	 * Method use in every mobile object, and also when load map, to execute the predefined order contain in the ControllerOrder list
-	 * @author Groupe Messbah EXIA Promo 2017
+	 * @author Dorian
 	 */
 	void orderPerform(ControllerOrder controllerOrder);
 
 	/**
      * Dynamically resize the window view according to the map size
 	 * @return tileMap
-     * @author Groupe Messbah EXIA Promo 2017
+     * @author Dorian
 	 */
 	IElement[][] getTileMap();
 
 	/**
      * Get the score made at the end of the game (win or loose) for POPUP
 	 * @return Score
-     * @author Groupe Messbah EXIA Promo 2017
+     * @author Dorian
 	 */
 	int getScore();
 
@@ -47,14 +47,14 @@ public interface IController {
 	/**
      * Get the level according to the number of the map played for the draw string at the bottom of the window
 	 * @return Level
-     * @author Groupe Messbah EXIA Promo 2017
+     * @author Dorian
 	 */
 	int getLevel();
 
     /**
      * @param tilemap String representing map with binding of letter with Element
      * @return 2-dimensional array representing game (map + mobile)
-     * @author Groupe Messbah EXIA Promo 2017
+     * @author Romain
      */
     IElement[][] parser(String tilemap);
 

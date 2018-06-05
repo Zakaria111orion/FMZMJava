@@ -12,8 +12,6 @@ import model.motionless.*;
 
 /**
  * The Class Model.
- * 
- * @author Groupe Messbah EXIA Promo 2017
  */
 public class Model extends Observable implements IModel {
 
