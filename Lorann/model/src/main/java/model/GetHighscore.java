@@ -3,8 +3,7 @@ package model;
 /**
  * The Class GetHighScore.
  *
- * @author Quentin Strinati
- */
+ * @author Groupe Messbah EXIA Promo 2017 */
 class GetHighscore extends EntityScore {
     /**
      * Instantiates a new GetHighscore.

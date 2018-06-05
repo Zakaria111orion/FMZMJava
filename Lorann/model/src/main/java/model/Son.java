@@ -1,6 +1,10 @@
 package model;
+/* 
+ * @author Groupe Messbah EXIA Promo 2017
+ */
 
 import java.io.File;
+
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;

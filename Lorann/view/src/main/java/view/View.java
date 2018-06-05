@@ -14,7 +14,7 @@ import contract.IView;
 /**
  * The Class View.
  *
- * @author Jean-Aymeric Diet
+ * @author Groupe Messbah EXIA Promo 2017
  */
 public class View implements IView, Runnable {
 

@@ -8,7 +8,7 @@ import java.util.Random;
 
 /**
  * List of the directions possible
- * @author Dorian
+ * @author Groupe Messbah EXIA Promo 2017
  */
 public enum MobileOrder {
     Right,
@@ -25,7 +25,7 @@ public enum MobileOrder {
      * @param pos Abscissa and ordinate
      * @param direction increment or decrease
      * @return a new position with the direction
-     * @author Dorian
+     * @author Groupe Messbah EXIA Promo 2017
      */
     public static Point getPos(Point pos, MobileOrder direction) {
 
@@ -58,18 +58,18 @@ public enum MobileOrder {
 
     /**
      * Instanciate the different values for the enum
-     * @author Dorian
+     * @author Groupe Messbah EXIA Promo 2017
      */
     private static final List<MobileOrder> VALUES =
             Collections.unmodifiableList(Arrays.asList(values()));
     /**
      *Size of the list of direction possible. Each one is treated like a number
-     * @author Dorian
+     * @author Groupe Messbah EXIA Promo 2017
      */
     private static final int SIZE = VALUES.size();
     /**
      * A variable using the Java Math.Random() method to instantiate a random number each time it's necessary
-     * @author Dorian
+     * @author Groupe Messbah EXIA Promo 2017
      */
     private static final Random RANDOM = new Random();
 

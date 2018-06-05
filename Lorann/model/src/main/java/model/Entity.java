@@ -3,7 +3,7 @@ package model;
 /**
  * The Class Entity.
  *
- * @author Jean-Aymeric Diet
+ * @author Groupe Messbah EXIA Promo 2017
  */
 abstract class Entity {
 

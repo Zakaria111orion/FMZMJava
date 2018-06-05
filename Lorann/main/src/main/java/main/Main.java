@@ -6,7 +6,7 @@ import view.View;
 
 /**
  * The Class Main.
- * @author Jean-Aymeric Diet
+ * @author Groupe Messbah EXIA Promo 2017
  */
 public abstract class Main {
 
