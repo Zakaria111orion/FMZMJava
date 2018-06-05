@@ -3,6 +3,7 @@ package controller;
 import contract.*;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.*;
 
 /**
@@ -14,7 +15,7 @@ public class Controller implements IController, Observer {
     private IView view;
     
     
-	//model.Son son = new model.Son();
+	model.Son son = new model.Son();
 
     /**
      * tileMap
@@ -124,7 +125,7 @@ public class Controller implements IController, Observer {
         this.pseudo = this.view.getPseudo();
         System.out.println(this.pseudo);
 
-        int lives = 12;
+        int lives = 11;
 
         // Game Loop
         while (true) {
@@ -133,8 +134,10 @@ public class Controller implements IController, Observer {
             }
 
             if(this.dead) {
+                this.destroyFireBall();
             	lives = lives - 1 ;
             	if(lives <= 0 ) {
+            		lives=11;
                 this.model.loadMap("MENU");
                 this.view.printMessage(String.format("YOU DIED! You made a score of : %d\nPress OK to restart the game", this.score));
                 this.model.upNameAndScore(this.score, this.pseudo);
@@ -278,7 +281,6 @@ public class Controller implements IController, Observer {
                 }
             }
         }
-        System.out.println("Parse2");
         this.parser = false;
         return map;
     }
@@ -343,7 +345,7 @@ public class Controller implements IController, Observer {
             case MOVEUP:
                 this.moveHero(MobileOrder.Up);
                 break;
-            case MOVERIGHT:
+            case MOVERIGHT:         
                 this.moveHero(MobileOrder.Right);
                 break;
             case MOVELEFT:
@@ -369,7 +371,7 @@ public class Controller implements IController, Observer {
         MobileOrder direction = this.hero.getDirection();
         Point currentPos = this.hero.getPos().getLocation();
         Point nextPos = this.computeNextPosball(direction, currentPos);
-        if(!currentPos.equals(nextPos)) {
+        if(!currentPos.equals(nextPos) && !this.tileMap[nextPos.x][nextPos.y].getClass().getSimpleName().contains("Bone")) {
             this.fireBall = (IFireball) this.model.element('F', nextPos);
 
             switch (direction)
@@ -402,6 +404,7 @@ public class Controller implements IController, Observer {
 			default:
 				break;
             }
+            son.Shoot();
             this.fireBall.setDirection( direction);
 
             this.swapFireBall(nextPos);
@@ -416,18 +419,18 @@ public class Controller implements IController, Observer {
         Point pos = this.hero.getPos();
         this.hero.move(order, tileMap, this.view);
         this.tileMap[pos.x][pos.y] = model.element(' ', pos.getLocation());
-
         pos = this.hero.getPos();
         String elementName = this.tileMap[pos.x][pos.y].getClass().getSimpleName();
-        if(elementName.contains("Monster")) {
-    		//son.Death();
+        if(elementName.contains("Monster") || elementName.contains("losed")) {
+    		son.Death();
             this.dead = true;
         } else if (elementName.contains("Crystal") && this.posDoor != null) {
-        	//son.Crystal();
+        	son.Crystal();
             this.tileMap[this.posDoor.x][this.posDoor.y] = model.element('O', this.posDoor);
             this.score += 100;
         } else if (elementName.contains("OpenDoor")) {
-        	//son.Port();
+        	son.Port();
+            this.destroyFireBall();
             this.level++;
             if(this.level > 9) {
                 this.model.upNameAndScore(this.score, this.pseudo);
@@ -438,7 +441,7 @@ public class Controller implements IController, Observer {
             this.model.loadMap(String.format("MAP%d", this.level));
             return;
         } else if (elementName.contains("Purse")) {
-        	//son.Consomable();
+        	son.Consomable();
             this.score += 250;
         }
         this.tileMap[pos.x][pos.y] = this.hero;
@@ -458,18 +461,22 @@ public class Controller implements IController, Observer {
                 Point aroundPos = this.computeNextPos(dir, currentPos);
                 IElement element = this.tileMap[aroundPos.x][aroundPos.y];
                 String elementName = element.getClass().getSimpleName();
+                
                 if(elementName.contains("Monster")) {
+                	son.Deadmonster();
                     this.tileMap[aroundPos.x][aroundPos.y] = model.element(' ', aroundPos);
                     this.monsters.remove(elementName);
                     this.destroyFireBall();
                     return;
                 }
+                
                 if(elementName.contains("Hero")) {
+                	son.Recover();
                     this.destroyFireBall();
                     return;
                 }
                 
-                if (elementName.contains("O") ) {
+                if (elementName.contains("Bone") || elementName.contains("Door")) {
                 	
                 	direction = this.fireBall.getDirection();
                 	switch (direction)
@@ -499,42 +506,13 @@ public class Controller implements IController, Observer {
         				break;
                     }
                 	
-                     if(this.fireBall != null && this.fireBall.getStep() > 20) {
+                     if(this.fireBall != null && this.fireBall.getStep() > 200) {
                          this.destroyFireBall();
                      }
                      
-                     }
                      
-                     else if (elementName.contains("Door")) {
-                     	direction = this.fireBall.getDirection();
-                    	switch (direction)
-                        {
-                          case Left:
-                              direction = MobileOrder.Right ; 	
-                              this.fireBall.setDirection( direction);
 
-                            break;
-                          case Right:
-                              direction = MobileOrder.Left ; 	
-                              this.fireBall.setDirection( direction);
-
-                            break;
-                          case Up:
-                              direction = MobileOrder.Down ; 	
-                              this.fireBall.setDirection( direction);
-                              break;
-
-                               
-                          case Down:
-                              direction = MobileOrder.Up ; 
-                              this.fireBall.setDirection( direction);
-                              
-                            break;
-            			default:
-            				break;
-                        }
-
-                         if(this.fireBall != null && this.fireBall.getStep() > 20) {
+                         if(this.fireBall != null && this.fireBall.getStep() > 200) {
                              this.destroyFireBall();
                          }}
             }
@@ -546,7 +524,7 @@ public class Controller implements IController, Observer {
 
         this.tileMap[currentPos.x][currentPos.y] = model.element(' ', currentPos.getLocation());
 
-        if(this.fireBall != null && this.fireBall.getStep() > 20) {
+        if(this.fireBall != null && this.fireBall.getStep() > 200) {
             this.destroyFireBall();
         }
     }
@@ -592,11 +570,10 @@ public class Controller implements IController, Observer {
                         this.tileMap),
                 pos);
         if(nextPos != pos) {
-            String element = tileMap[nextPos.x][nextPos.y].getClass()
-                    .getSimpleName();
+            String element = tileMap[nextPos.x][nextPos.y].getClass().getSimpleName();
             if(element.contains("Hero")) {
                 this.dead = true;
-            } else if(!element.contains("Monster") &&
+            } else if(!element.contains("Bone") && !element.contains("Monster") &&
                     !element.contains("Purse") &&
                     !element.contains("Crystal") &&
                     !element.contains("Door")) {
@@ -617,7 +594,7 @@ public class Controller implements IController, Observer {
 
         if(direction == null)
             return nextPos;
-
+        
         switch (direction) {
         case Left:
             if(currentPos.y > 0 &&
@@ -629,7 +606,7 @@ public class Controller implements IController, Observer {
             }
             break;
         case Right:
-            if(currentPos.y < (view.getWidth() / 32) - 1 &&
+            if(currentPos.y < (view.getWidth() / 32) &&
                     tileMap[currentPos.x][currentPos.y + 1].getPermeability())
             {
                 nextPos = new Point(
