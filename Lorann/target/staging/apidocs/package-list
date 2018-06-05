@@ -1,6 +1,7 @@
+contract
 controller
 main
 model
-model.dao
-showboard
+model.mobile
+model.motionless
 view
