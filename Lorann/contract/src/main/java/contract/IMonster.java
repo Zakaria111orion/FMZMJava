@@ -13,8 +13,4 @@ public interface IMonster extends IMobile {
      * @author Dorian
      */
     MobileOrder getDirection(Point heroPos, IElement[][] tileMap);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4bbcb42b42179bc7a242e80dc26862a13cd7d2c7

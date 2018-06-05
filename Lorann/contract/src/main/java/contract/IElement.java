@@ -14,7 +14,6 @@ public interface IElement {
      */
     boolean getPermeability();
 
-<<<<<<< HEAD
     /**
      * Get the image for the element.
      * @return image
@@ -22,8 +21,3 @@ public interface IElement {
      */
     BufferedImage getImage();
 }
-=======
-    
-    BufferedImage getImage();
-}
->>>>>>> 4bbcb42b42179bc7a242e80dc26862a13cd7d2c7
