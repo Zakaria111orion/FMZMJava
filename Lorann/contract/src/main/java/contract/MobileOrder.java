@@ -14,8 +14,12 @@ public enum MobileOrder {
     Right,
     Up,
     Left,
+<<<<<<< HEAD
     Down, 
     Null;
+=======
+    Down;
+>>>>>>> 4bbcb42b42179bc7a242e80dc26862a13cd7d2c7
 
     public static List<MobileOrder> getValues() {
         return VALUES;
@@ -46,11 +50,14 @@ public enum MobileOrder {
                 return new Point(
                             pos.x + 1,
                             pos.y);
+<<<<<<< HEAD
             case Null:
             	return new Point (
             			    pos.x +1,
             			    pos.y);
             			
+=======
+>>>>>>> 4bbcb42b42179bc7a242e80dc26862a13cd7d2c7
         }
 
         return null;
