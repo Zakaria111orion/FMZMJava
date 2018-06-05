@@ -18,7 +18,7 @@ class DBProperties extends Properties {
 	private final static String	PROPERTIES_FILE_NAME	= "model.properties";
 
 	/** The url. */
-	private String							url										= "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
+	private String							url										= "jdbc:mysql://localhost/jpublankproject?useSSL=false&serverTimezone=UTC";
 
 	/** The login. */
 	private String							login									= "root";
@@ -40,9 +40,9 @@ class DBProperties extends Properties {
 			} catch (final IOException e) {
 				e.printStackTrace();
 			}
-			this.setUrl(this.getProperty("url"));
-			this.setLogin(this.getProperty("login"));
-			this.setPassword(this.getProperty("password"));
+			this.setUrl(this.url);
+			this.setLogin(this.login);
+			this.setPassword(this.password);
 		}
 	}
 

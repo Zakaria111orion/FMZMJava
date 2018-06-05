@@ -12,6 +12,31 @@ public class Son {
 		
 	}
 	
+public void Deadmonster(){
+		
+		File Clap = new File("C:\\Users\\charm\\Desktop\\NEW 1\\model\\src\\main\\resources\\Sounds\\Deadmonster.wav");
+		PlaySound(Clap);
+	
+		
+	} 
+
+
+public void Recover(){
+	
+	File Clap = new File("C:\\Users\\charm\\Desktop\\NEW 1\\model\\src\\main\\resources\\Sounds\\Fireballrecovery.wav");
+	PlaySound(Clap);
+
+	
+} 
+
+public void Shoot(){
+	
+	File Clap = new File("C:\\Users\\charm\\Desktop\\NEW 1\\model\\src\\main\\resources\\Sounds\\Shoot.wav");
+	PlaySound(Clap);
+
+	
+} 
+	
 public void Consomable(){
 		
 		File Clap = new File("C:\\Users\\charm\\Desktop\\NEW 1\\model\\src\\main\\resources\\Sounds\\Consomable.wav");

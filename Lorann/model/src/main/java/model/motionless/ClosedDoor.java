@@ -1,9 +1,5 @@
 package model.motionless;
 
-/**
- * Created by Quentin Strinati on 14/06/2016.
- */
-
 /** Class creating the Closed Door extending the Motionless class */
 public class ClosedDoor extends Motionless {
     /**
@@ -11,6 +7,6 @@ public class ClosedDoor extends Motionless {
      */
     public ClosedDoor()
     {
-        super("gate_closed.png", false);
+        super("gate_closed.png", true);
     }
 }
